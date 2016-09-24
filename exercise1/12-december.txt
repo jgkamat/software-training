@@ -2,3 +2,6 @@
 obscuring summer's memory..."
 
 -John Geddes
+
+
+I have edited this file for the purposes of RoboJackets software training.
