@@ -8,16 +8,21 @@
 // Make sure they're alphabetized!
 #include "animal.h"
 #include "human.h"
+#include "construction.h"
 
-void PrintAnimal(const Animal& animal) {
-  std::cout << "The " << animal.Name() << " says: " << animal.Greeting()
+void PrintAnimal(const Animal& myAnimal) {
+  std::cout << "The " << myAnimal.Name() << " says: " << myAnimal.Greeting()
             << std::endl;
 }
 
 int main() {
-  Human human;
+	Human* human = new Human(24);
+	Construction bob;
 
-  PrintAnimal(human);
+	PrintAnimal(*human);
+	PrintAnimal(bob);
 
-  return 0;
+	delete human;
+
+	return 0;
 }

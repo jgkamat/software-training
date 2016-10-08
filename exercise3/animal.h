@@ -4,7 +4,11 @@
 #include <string>
 
 class Animal {
- public:
+
+protected:
+	int weight;
+
+public:
   // Return the name of the animal.
   //
   // For example, a human class would return "Human".
