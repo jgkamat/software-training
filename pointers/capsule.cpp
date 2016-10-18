@@ -17,6 +17,6 @@ Capsule::~Capsule() {
   cout << "Destroying my " << state << " Capsule" << endl;
 }
 
-string Capsule::getData() {
+string Capsule::getData() const {
   return state;
 }

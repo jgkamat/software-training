@@ -8,7 +8,7 @@ private:
   std::string state;
 
 public:
-  std::string getData();
+  std::string getData() const;
   ~Capsule();
   Capsule();
   Capsule(std::string);

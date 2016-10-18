@@ -4,6 +4,17 @@
 
 using namespace std;
 
+/* CheatSheet
+   | item     | def                              |
+   |----------+----------------------------------|
+   | int*     | int pointer                      |
+   | int&     | int References                   |
+   | &a       | address of variable a            |
+   | *a       | dereference pointer a            |
+   | new a()  | create object a in Heap          |
+   | delete a | free a pointer, created with new |
+*/
+
 int main() {
   // On the stack
   cout << "Stack:" << endl;
@@ -31,6 +42,7 @@ int main() {
   delete &cRef; // or delete cPtr
 
 
+  cout << endl << "Smart Pointers:" << endl;
   // Unique Pointers
   std::unique_ptr<Capsule> p1(new Capsule("Heap - UniquePtr"));
   // p1.get() gives us a good ol' fashioned pointer. Don't pass it around!
