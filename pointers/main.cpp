@@ -15,14 +15,39 @@ using namespace std;
    | delete a | free a pointer, created with new |
 */
 
+// Classic c swapping function
+int swap(int* a, int* b) {
+  int tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+// C++ swapping function
+int swap2(int& a, int& b) {
+  int tmp = a;
+  a = b;
+  b = tmp;
+}
+
 int main() {
+
+  cout << "Swapping test:" << endl;
+  int a = 1;
+  int b = 2;
+  cout << "a: " << a << " b: " << b << endl;
+  swap(&a, &b);
+  cout << "a: " << a << " b: " << b << endl;
+  swap2(a, b);
+  cout << "a: " << a << " b: " << b << endl;
+
   // On the stack
-  cout << "Stack:" << endl;
+  cout << endl << "Stack:" << endl;
   Capsule c("Stack");
 
   // Pointers!
   cout << endl << "Heap:" << endl;
   Capsule* capsulePtr = new Capsule("Heap - Ptr");
+  // If we have no space, an exception is thrown
   cout << "My capsule pointer points to: " << capsulePtr << endl;
   cout << "Following it gives us: " << (*capsulePtr).getData() << endl;
   // Shortform
@@ -49,6 +74,19 @@ int main() {
   cout << "My capsule pointer points to: " << p1.get() << endl;
   cout << "Following it gives us: " << p1->getData() << endl;
   // Our Unique Pointer will autodelete this when we reach end of scope, at the bottom
+
+
+  // BONUS:
+  // How do we use the heap in c?
+  printf("\nC bonus!\n");
+  int* cptr = (int*) malloc(sizeof(int));
+  if (!cptr) {
+    printf("We could not allocate memory!\n");
+    return 1;
+  }
+  *cptr = 5;
+  printf("%d\n", *cptr);
+  free(cptr);
 
   cout << endl << "Ending Main" << endl;
 }
