@@ -78,15 +78,22 @@ int main() {
 
   // BONUS:
   // How do we use the heap in c?
-  printf("\nC bonus!\n");
-  int* cptr = (int*) malloc(sizeof(int));
-  if (!cptr) {
-    printf("We could not allocate memory!\n");
+  // And what is pointer arithmetic and what are arrays?
+  int* p3 = (int*) malloc(sizeof(int) * 10);
+  int* trueArray = p3;
+  int** arrayPtrPtr = &p3;
+  if (NULL == p3) {
+    printf("Could not alloc memory");
     return 1;
   }
-  *cptr = 5;
-  printf("%d\n", *cptr);
-  free(cptr);
+  for (int i = 0; i < 10; i++) {
+    **arrayPtrPtr = i;
+    p3++;
+  }
+  for (int i = 0; i < 10; i++) {
+    printf("%d \n", trueArray[i]);
+  }
+  free(trueArray);
 
   cout << endl << "Ending Main" << endl;
 }
