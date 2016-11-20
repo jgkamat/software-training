@@ -48,13 +48,13 @@ void loop() {
   }
   */
   //distance = 19;
-  if ((distance < 20 || distance == 255) && !backing) {
+  if ((distance < 30 || distance == 255) && !backing) {
     count++;
   } else if (!backing) {
     count = 0;
   }
 
-  if (count > 200 && !backing) {
+  if (count > 150 && !backing) {
     backing = true;
     count = 0;
   }
@@ -62,7 +62,7 @@ void loop() {
     left.setFixedDrive(-255);
     right.setFixedDrive(-150);
     count++;
-    if (count > 350) {
+    if (count > 300) {
       backing = false;
       count = 0;
     }
