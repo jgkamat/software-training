@@ -20,3 +20,8 @@ This is the source repository for the 2017 RoboJackets Software training program
   make
   #+END_SRC
 3. Output will be placed in the ~html/~ directory.
+* License
+
+This fork is sublicensed to the GPL.
+
+The terms of the MIT license have been included per the terms of the MIT license, but all commits after 484c0c87b68473a96af00cd8d9c8a4c27f575d5e are GPL.
