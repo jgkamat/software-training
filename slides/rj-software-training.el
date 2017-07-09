@@ -19,7 +19,7 @@
 
 ;; Force htmlize to activate even in nogui mode:
 ;; https://stackoverflow.com/questions/3591337/emacs-htmlize-in-batch-mode
-;; http://sebastien.kirche.free.fr/emacs_stuff/elisp/my-htmlize.el
+;; sebastien.kirche.free.fr/emacs_stuff/elisp/my-htmlize.el
 ;; Get fancy colors! (but this will screw up your native emacs install)
 (when noninteractive
   ;; Don't run in interactive mode to avoid breaking your colors
@@ -49,6 +49,7 @@
         :with-tags nil
         :with-author nil
         :with-date nil
+        :with-todo-keywords nil
         :section-numbers nil
         :reveal-history nil
         :reveal-control nil
@@ -56,9 +57,11 @@
         :reveal-plugins "(notes pdf)"
         :reveal-speed "fast"
         :reveal-trans "linear"
-        :reveal-theme "black"
-        :base-directory ,(concat proj-base "./src")
-        :publishing-directory ,(concat proj-base "/html/slides/")
+        :reveal-theme "white"
+        :reveal-width 1440
+        :reveal-height 800
+        :base-directory ,(concat proj-base ".")
+        :publishing-directory ,(concat proj-base "../html/slides/")
         :publishing-function org-reveal-publish-to-reveal
         :exclude-tags ("docs"))
        ("rj-docs"
@@ -67,27 +70,28 @@
          :with-tags nil
          :with-author nil
          :with-date nil
+         :with-todo-keywords nil
          :section-numbers nil
          :with-timestamps nil
          :time-stamp-file nil
-         :base-directory ,(concat proj-base "./src")
-         :publishing-directory ,(concat proj-base "/html/docs/")
+         :base-directory ,(concat proj-base ".")
+         :publishing-directory ,(concat proj-base "../html/docs/")
          :publishing-function org-gfm-publish-to-gfm
          :exclude-tags ("slides")))
     org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.0.0/"
-    org-reveal-margin "0.22"))
+    org-reveal-margin "0.15"))
 
 
 (require 'ob-python)
 (require 'ob-C)
 (setq org-babel-python-command "python3")
 ;; Make indentation actually matter in org src blocks
-(setq org-src-preserve-indentation t)
+(setq org-src-preserve-indentation nil)
 
 (when noninteractive
   ;; Don't ask for evaluation
   ;; (WARNING THIS WILL COMPILE/RUN CODE ON YOUR COMPUTER)
-  ;; DO NOT RUN INTERACTIVELY IF YOU DO NOT ACCEPT THIS
+  ;; DO NOT RUN NONINTERACTIVELY IF YOU DO NOT ACCEPT THIS
   (defun my-org-confirm-babel-evaluate (lang body)
     "Stop org mode from complaining about python.
 LANG language input
@@ -96,8 +100,7 @@ BODY code body"
   (setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate))
 
 (defun rj-software-training-publish ()
-  "Overwrite's my (jay's) personal publishing file to publish everything.
-Also provides a script to run to publish this project."
+  "Simple script to export this project."
   (interactive)
   ;; Don't make backup files when generating (cask)
   (let ((make-backup-files nil))

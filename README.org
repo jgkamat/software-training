@@ -5,21 +5,26 @@ This is the source repository for the 2017 RoboJackets Software training program
 # TODO this section needs to be redone/populated
 * Slides
 
-- [[https://robojackets.github.io/software-training/slides/TEST#/sec-title-slide][Test Presentation]]
+1. Week 1
+   + [[https://robojackets.github.io/software-training/slides/week1/github.html][GitHub Presentation]]
+   + [[https://robojackets.github.io/software-training/slides/week1/week1.html][Code Presentation]]
 
 # TODO maybe host these MD files in an external way other than GH?
 * Docs
-- [[https://github.com/RoboJackets/software-training/blob/gh-pages/docs/TEST.md][Test Presentation]]
+1. Week 1
+   + [[https://github.com/RoboJackets/software-training/blob/gh-pages/docs/week1/github.md][GitHub Presentation]]
+   + [[https://github.com/RoboJackets/software-training/blob/gh-pages/docs/week1/week1.md][Code Presentation]]
 
 * Building Slides
 
-1. Install [[https://github.com/cask/cask][cask]].
-2. Run these commands
+1. Navigate to the ~./slides~ directory
+2. Install [[https://github.com/cask/cask][cask]].
+3. Run these commands
   #+BEGIN_SRC sh
   cask install
   make
   #+END_SRC
-3. Output will be placed in the ~html/~ directory.
+4. Output will be placed in the ~html/~ directory, at the root
 * License
 
 This fork is sublicensed to the GPL.
